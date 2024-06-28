@@ -32,10 +32,10 @@ This application is a Network Management Dashboard that provides real-time stati
 
 1. Navigate to the `PythonFolder` directory.
 2. Install the dependencies by running
-`pip install Flask
-pip install flask-cors
-pip install psutil
-pip install pysnmp`.
+`pip install Flask`
+`pip install flask-cors`
+`pip install psutil`
+`pip install pysnmp`.
 3. Start the application by running `python network_stats.py`.
 
 ## Future Improvements
