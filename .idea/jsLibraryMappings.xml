@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/Client/network-performance-dashboard" libraries="{DeviceManagementSystem/Client/network-performance-dashboard/node_modules}" />
     <includedPredefinedLibrary name="Node.js Core" />
   </component>
 </project>
