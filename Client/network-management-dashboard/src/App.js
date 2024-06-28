@@ -64,7 +64,6 @@ const NetworkStats = () => {
             <p>Packets Received: {data.getNetworkStats.packets_recv}</p>
             <p>Timestamp: {data.getNetworkStats.timestamp}</p>
             <p>Host: {data.getNetworkStats.host}</p>
-            <p>Latency: {data.getNetworkStats.latency}</p>
         </div>
     );
 };
