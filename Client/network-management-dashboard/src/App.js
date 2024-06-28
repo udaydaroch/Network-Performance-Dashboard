@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useQuery, useMutation, gql } from '@apollo/client';
 import './App.css';
 import Snackbar from './Snackbar';
@@ -41,10 +41,19 @@ const REMOVE_DEVICE = gql`
 `;
 
 const NetworkStats = () => {
-    const { loading, error, data } = useQuery(GET_NETWORK_STATS);
+    const { loading, error, data, refetch } = useQuery(GET_NETWORK_STATS);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            refetch();
+        }, 2000);
+        return () => clearInterval(interval);
+    }, [refetch]);
+
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
+
 
     return (
         <div className="network-stats">
@@ -61,7 +70,7 @@ const NetworkStats = () => {
 };
 
 const Devices = ({ showSnackbar }) => {
-    const { loading, error, data } = useQuery(GET_DEVICES);
+    const { loading, error, data, refetch } = useQuery(GET_DEVICES);
     const [addDevice] = useMutation(ADD_DEVICE, {
         refetchQueries: [{ query: GET_DEVICES }],
         onCompleted: () => showSnackbar('Device added successfully', 'success'),
@@ -72,6 +81,13 @@ const Devices = ({ showSnackbar }) => {
         onCompleted: () => showSnackbar('Device removed successfully', 'success'),
         onError: () => showSnackbar('Failed to remove device', 'error')
     });
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            refetch();
+        }, 2000);
+        return () => clearInterval(interval);
+    }, [refetch]);
 
     const [newIpAddress, setNewIpAddress] = useState('');
 
