@@ -11,7 +11,7 @@ This application is a Network Management Dashboard that provides real-time stati
 ## Technologies Used
 
 - Frontend: React.js, Apollo Client, Material-UI
-- Backend: Python (Assuming you're using Python for the backend)
+- Backend: Python 
 - Database: I am currently just storing the information in a dictionary in the python server. 
 - API: GraphQL
 
